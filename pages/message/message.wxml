@@ -1,7 +1,17 @@
 <!--pages/message/message.wxml-->
-<view>hhh</view>
-<view>hhh</view>
-<view>hhh</view>
-<view>hhh</view>
-<view>hhh</view>
-<view>hhh</view>
+
+<button bindtap="gotoInfo">跳转到info</button>
+
+<view></view>
+
+<wxs module="m1">
+  module.exports.toUpper = function(str) {
+    return str.toUpperCase()
+  }
+</wxs>
+
+<view>{{m1.toUpper(username)}}</view>
+
+<view>{{m2.toLower(country)}}</view>
+
+<wxs src="../../utils/tools.wxs" module="m2"></wxs>

@@ -1,0 +1,6 @@
+<!--pages/info/info.wxml-->
+<button bindtap="gotoMessage">跳转到message页面</button>
+<button bindtap="backMessage">返回</button>
+<view>{{count}}</view>
+<button bindtap="addCount">+1</button>
+<view style="height:1000rpx;background-color: lightblue;"></view>

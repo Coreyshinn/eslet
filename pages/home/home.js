@@ -9,6 +9,11 @@ Page({
     gridList: [],
 
   },
+  gotoInfo(){
+    wx.navigateTo({
+      url: '/pages/info/info?name=男&age=20',
+    })
+  },
 
   /**
    * 生命周期函数--监听页面加载

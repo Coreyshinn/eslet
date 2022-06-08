@@ -5,14 +5,31 @@ Page({
    * 页面的初始数据
    */
   data: {
-
+    colorList: []
   },
-
+  getColor() {
+    wx.showLoading({
+      title: '数据获取中...',
+    })
+    wx.request({
+      url: 'https://applet-base-api-t.itheima.net/api/color',
+      method: 'GET',
+      success: ({data:res}) => [
+        this.setData({
+          colorList: [...this.data.colorList, ...res.data]
+        })
+      ],
+      complete: () => {
+        wx.hideLoading()
+      }
+      
+    })
+  },
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad(options) {
-
+    this.getColor()
   },
 
   /**
@@ -47,14 +64,15 @@ Page({
    * 页面相关事件处理函数--监听用户下拉动作
    */
   onPullDownRefresh() {
-
+    wx.stopPullDownRefresh({
+    })
   },
 
   /**
    * 页面上拉触底事件的处理函数
    */
   onReachBottom() {
-
+    this.getColor()
   },
 
   /**
